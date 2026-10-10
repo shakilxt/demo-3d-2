@@ -10,7 +10,6 @@ const out = join(root, 'vendor/three');
 
 const entries = [
   'build/three.module.js',
-  'examples/jsm/environments/RoomEnvironment.js',
   'examples/jsm/postprocessing/EffectComposer.js',
   'examples/jsm/postprocessing/RenderPass.js',
   'examples/jsm/postprocessing/GTAOPass.js',
