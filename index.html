@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robot Hero Demo</title>
+    <link rel="preload" as="image" href="media/robot-loop-poster.jpg" />
+    <style>
+      :root {
+        /* must match the video's background exactly (#dcdcdc) */
+        --bg: #dcdcdc;
+        --ink: #111214;
+        --muted: #4a4c52;
+        --accent: #d4221a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+          Arial, sans-serif;
+      }
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        overflow: hidden;
+      }
+      .copy {
+        position: relative;
+        z-index: 1;
+        padding: 0 clamp(16px, 6vw, 96px);
+        max-width: 640px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .eyebrow::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 10px var(--accent);
+      }
+      h1 {
+        font-size: clamp(40px, 5.6vw, 84px);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
+        font-weight: 600;
+        margin: 18px 0 20px;
+      }
+      p {
+        font-size: clamp(16px, 1.3vw, 19px);
+        line-height: 1.55;
+        color: var(--muted);
+        max-width: 30em;
+        margin: 0 0 32px;
+      }
+      .ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        height: 48px;
+        padding: 0 24px;
+        border-radius: 999px;
+        font-size: 15px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+      .primary {
+        background: var(--ink);
+        color: #fff;
+      }
+      .ghost {
+        color: var(--ink);
+        border: 1px solid rgba(17, 18, 20, 0.25);
+      }
+      .ghost:hover {
+        background: rgba(255, 255, 255, 0.35);
+      }
+      .media {
+        height: 100svh;
+        aspect-ratio: 2 / 3;
+      }
+      .media video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          align-items: end;
+        }
+        .media {
+          position: absolute;
+          inset: 0 0 auto auto;
+          height: 78svh;
+        }
+        .copy {
+          padding-bottom: 48px;
+          padding-top: 60svh;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .media video {
+          display: none;
+        }
+        .media {
+          background: url('media/robot-loop-poster.jpg') center / cover no-repeat;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="copy">
+        <span class="eyebrow">Autonomous systems</span>
+        <h1>Intelligence, engineered to look back.</h1>
+        <p>
+          Precision robotics built with ceramic armour, titanium motion systems and perception
+          that meets you eye to eye.
+        </p>
+        <div class="ctas">
+          <a class="btn primary" href="#">Request a demo</a>
+          <a class="btn ghost" href="robot.html">View in real-time 3D</a>
+        </div>
+      </div>
+      <div class="media">
+        <video autoplay muted loop playsinline preload="auto" poster="media/robot-loop-poster.jpg">
+          <source src="media/robot-loop.webm" type="video/webm" />
+          <source src="media/robot-loop.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+  </body>
+</html>

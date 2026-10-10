@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Robot Scene</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #dcdcdc;
+        overflow: hidden;
+      }
+      .stage {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/build/three.module.js",
+          "three/addons/": "./vendor/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="stage"><canvas></canvas></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
